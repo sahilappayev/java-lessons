@@ -10,8 +10,6 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[] args) throws ParseException {
-
-
         Date date = new Date();
 
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh:mm");
@@ -28,7 +26,9 @@ public class Main {
 
         System.out.println(date);
 
+        // Date to LocalDate
         LocalDate localDate = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault());
+        // Date to LocalDateTime
         LocalDateTime localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
 
         System.out.println(localDate);
