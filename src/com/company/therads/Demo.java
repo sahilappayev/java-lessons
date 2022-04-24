@@ -1,19 +1,17 @@
 package com.company.therads;
 
 public class Demo {
-    public static int a;
+    public int a;
 
-    public synchronized static void incA() {
-        a++;
+    public void incA() {
+        // 1 Threadlik qutu - monitor
+        // lock
+        synchronized (this) {
+            a++;
+        }
     }
 
-    public synchronized static int getA(){
+    public int getA() {
         return a;
     }
-
-    public synchronized static void setA(int v){
-        a = v;
-    }
-
-
 }
