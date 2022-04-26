@@ -1,11 +1,14 @@
 package com.company.therads;
 
 public class Demo {
-    public int a;
+
+    // shared resource
+    public volatile int a;
 
     public void incA() {
+        // thread safe
         // 1 Threadlik qutu - monitor
-        // lock
+        // lock - 10 Threads
         synchronized (this) {
             a++;
         }
