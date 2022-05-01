@@ -12,8 +12,10 @@ public class MyThread implements Runnable {
 
     @Override
     public void run() {
+        System.out.println(thread.getName() + " run method started...");
         for (int i = 0; i < 100; i++) {
             demo.incA();
         }
+        System.out.println(thread.getName() + " run method completed...");
     }
 }

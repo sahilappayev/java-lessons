@@ -3,9 +3,8 @@ package com.company.therads.executorservice;
 import com.company.therads.Demo;
 import com.company.therads.MyThread;
 
-import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class ExecutorServiceDemo {
@@ -41,13 +40,16 @@ public class ExecutorServiceDemo {
         MyThread myThread4 = new MyThread("FOUR", demo);
         MyThread myThread5 = new MyThread("FOUR", demo);
 
+        ExecutorService executor = Executors.newFixedThreadPool(1);
 
+        // period evvelki taskin bashlamasindan hesablanir
+        // delay ise evvelki taskin bitishinden hesablanir
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 5,
-                1, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
-        executor.allowCoreThreadTimeOut(true);
+//        executor.scheduleWithFixedDelay(myThread1, 0, 2, TimeUnit.SECONDS);
+//        executor.scheduleWithFixedDelay(myThread2, 0, 3, TimeUnit.SECONDS);
+//        executor.scheduleWithFixedDelay(myThread3, 0, 5, TimeUnit.SECONDS);
 
-        Future<?> submit = executor.submit(myThread1);
+        executor.submit(myThread1);
         executor.submit(myThread2);
         executor.submit(myThread3);
         executor.submit(myThread4);
@@ -56,7 +58,7 @@ public class ExecutorServiceDemo {
         System.out.println("Thread count: " + Thread.activeCount());
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
