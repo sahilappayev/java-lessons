@@ -3,7 +3,8 @@ package com.company.generics;
 // Type parameter
 // generic is using only reference types
 // bounded type parameter
-public class Wrapper <K, V extends User & MyInter & MyInter2> {
+// placeholder
+public class Wrapper <K, V extends User & MyInter & MyInter2> { // bounded type parameter - mutleq
 
     private K key;
     private V value;

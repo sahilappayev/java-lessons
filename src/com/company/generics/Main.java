@@ -6,17 +6,25 @@ public class Main {
 
         // java 1.7
         // * -> ?
-        Wrapper<Integer , User> wrapper = new Wrapper();
-
-        User user = new User();
-
-        Person<User> person = new Person<>();
-        person.setValue(user);
+        Wrapper<Human , Person<String>> wrapper = new Wrapper<>();
+        wrapper.setValue(new Person<>());
+        wrapper.setKey(new Human());
 
 
-        User user1 = user.fillUser(new User(), person);
+        NewWrapper<Wrapper<Human , Person<String>> > newWrapper = new NewWrapper<>();
+        newWrapper.object = wrapper;
 
-        System.out.println(user1);
+
+
+//        User user = new User();
+//
+//        Person<User> person = new Person<>();
+//        person.setValue(user);
+//
+//
+//        User user1 = user.fillUser(new User(), person);
+//
+//        System.out.println(user1);
 
     }
 

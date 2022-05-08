@@ -1,6 +1,6 @@
 package com.company.generics;
 
-public class User implements MyInter, MyInter2{
+public class User extends Human implements MyInter, MyInter2{
 
     private String name;
     private int age;
