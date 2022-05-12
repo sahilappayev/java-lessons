@@ -1,9 +1,8 @@
 package com.company.files.io;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
 public class FileWriteMethods {
@@ -30,11 +29,10 @@ public class FileWriteMethods {
         }
     }
 
-    public static byte[] readFileAsBytes(String fileName) throws IOException {
-        try (InputStream inputStream = new FileInputStream(fileName)) {
-            return inputStream.readAllBytes();
+    public static void writeObject(String fileName, Object object) throws IOException {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            outputStream.writeObject(object);
         }
     }
-
 
 }
