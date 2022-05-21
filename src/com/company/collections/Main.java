@@ -3,19 +3,84 @@ package com.company.collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Set;
+import java.util.SortedMap;
 import java.util.Stack;
+import java.util.TreeMap;
 
 public class Main {
 
     public static void main(String[] args) {
 
         // FIFO vs LIFO
-        linkedList();
+
+
+    }
+
+
+    public static void set(){
+        // unordered
+        Set<User> userSet = new HashSet<>();
+        userSet.add(new User("Sahil", 26));
+        userSet.add(new User("Aga", 15));
+        userSet.add(new User("Ali", 50));
+        userSet.add(new User("Gunel", 20));
+
+
+//        for (User user: userSet){
+//            System.out.println(user);
+//        }
+
+        Iterator<User> iterator = userSet.iterator();
+//        for (int i = 0; i < userSet.size(); i++){
+//            iterator.hasNext();
+//            System.out.println(iterator.next());
+//        }
+
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+
+//        SortedSet<User> sortedSet = new TreeSet<>(userSet);
+
+//        System.out.println(userSet);
+
+    }
+
+    public static void map(){
+        // unordered
+        SortedMap<String, User> map = new TreeMap<>();
+        map.put("aa", new User("Sahil", 26));
+        map.put("bb", new User("Ali", 25));
+        map.put("dd", new User("Aga", 32));
+        map.put("f", new User("Aa", 17));
+
+        User user1 = new User("Sahil", 26);
+        User user2 = new User("Memmed", 35);
+
+        System.out.println(Comparator.comparing(User::getAge).compare(user2, user2));
+
+
+//        map.put("Second", new User("Gunel"));
+
+//        System.out.println(map.getOrDefault("Second", new User("Default")));
+
+//        System.out.println(map.entrySet());
+//        System.out.println(map.keySet());
+
+//        System.out.println(map);
+
+        int index = "dsfdshf".hashCode() & (16 - 1); // [0 - 15]
+
+        System.out.println("index: " + index);
     }
 
     public static void linkedList(){

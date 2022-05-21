@@ -2,14 +2,20 @@ package com.company.collections;
 
 public class DoublyLinkedList<E> {
 
-    private Node<E> first;
-    private Node<E> last;
+
+    /*
+    1. Singly Linked List (only next)
+    2. Circular Linked List (first has prev (last) and last has next (first))
+    3. Doubly Linked List
+     */
+    private Store<E> first;
+    private Store<E> last;
 
     private int size = 0;
 
     public void add(E e) {
-        Node<E> lastNode = last;
-        Node<E> newNode = new Node<>(lastNode, e, null);
+        Store<E> lastNode = last;
+        Store<E> newNode = new Store<>(lastNode, e, null);
         if (first == null) {
             first = newNode;
         }else {
@@ -20,7 +26,7 @@ public class DoublyLinkedList<E> {
     }
 
     public void remove(int index){
-        Node<E> current = get(index);
+        Store<E> current = get(index);
         if (current.next == null){  // sonuncu elementirse
             current.prev.next = null;
             last = current.prev;
@@ -38,9 +44,9 @@ public class DoublyLinkedList<E> {
     }
 
 
-    public Node<E> get(int index){
+    public Store<E> get(int index){
         int counter = 0;
-        Node<E> current = first;
+        Store<E> current = first;
         while (counter != index && current != null){
             current = current.next;
             counter++;
@@ -52,13 +58,13 @@ public class DoublyLinkedList<E> {
     }
 
 
-    class Node<E> {
+    class Store<E> {
 
         E data;
-        Node<E> next;
-        Node<E> prev;
+        Store<E> next;
+        Store<E> prev;
 
-        public Node(Node<E> prev, E data, Node<E> next) {
+        public Store(Store<E> prev, E data, Store<E> next) {
             this.data = data;
             this.next = next;
             this.prev = prev;
